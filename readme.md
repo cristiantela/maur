@@ -1,6 +1,6 @@
 # Maur.js
 
-Tool to create and manage canvas 2d objects for.
+Tool to create and manage canvas 2d objects.
 
 ```javascript
 Maur.set(settings);
