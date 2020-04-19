@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Maur</title>
+  <style type="text/css">
+    body {
+      background-color: #999999;
+    }
+
+    canvas {
+      border: 1px solid gray;
+      background-color: white;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+<canvas width="800" height="400"></canvas>
+<script type="text/javascript" src="maur.js"></script>
+<script type="text/javascript">
+  const canvas = document.querySelector('canvas');
+
+  Maur.set({
+    canvas,
+  });
+
+  const rect = Maur.rect({
+    x: 400,
+    y: 300,
+    width: 200,
+    height: 100,
+    backgroundColor: 'green',
+    rotate: 0,
+    horizontalAlign: 'center',
+    verticalAlign: 'center',
+  });
+
+  const point = Maur.circle({
+    x: 400, y: 300, radius: 50, backgroundColor: 'red',
+  });
+
+  render();
+
+  setInterval(render, 100);
+
+  function render() {
+    Maur.clear();
+
+    if (Maur.isMouseOver(point)) {
+      point.backgroundColor = 'blue';
+    } else {
+      point.backgroundColor = 'red';
+    }
+
+    if (Maur.isMouseOver(rect)) {
+      rect.backgroundColor = 'pink';
+    } else {
+      rect.backgroundColor = 'green';
+    }
+
+    rect.draw();
+    point.draw();
+  }
+</script>
+</body>
+</html>
